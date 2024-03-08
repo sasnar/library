@@ -1,0 +1,94 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    background-color: gray;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+
+}
+
+.flip-card {
+    border: 1px solid black;
+    width: 175px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.content img {
+    border: 1px solid gray;
+    width: 150px;
+    height: 200px;
+}
+
+.card-front {
+    position: absolute;
+    height: 200px;
+    width: 150px;
+    backface-visibility: hidden;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
+  }
+  
+  .img-description {
+    position: absolute;
+    top: -15px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 150px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.425);
+    color: #fff;
+    font-weight: bold;
+    visibility: hidden;
+    opacity: 0;
+    line-height: 350px;
+    text-align: center;
+  
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+  }
+  
+  .card-front:hover .img-description {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .card-back {
+      background-color: red;
+      transform: rotateY(180deg); /* Initially hide the card back */
+      height: 200px;
+      width: 150px;
+      backface-visibility: hidden;
+      transition: transform 1s;
+
+  }
+
+  .flip {
+      transform: rotateY(360deg);
+  }
