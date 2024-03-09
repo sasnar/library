@@ -12,73 +12,27 @@
     <div class="container">
         <div class="header">Manga shelf</div>
         <div class="content">
-            <div class="flip-card">
-                <div class="card-front">
-                    <img src="one" alt="">
-                    <p class="img-description">Naruto</p>
-                </div>
-                <div class="card-back">
-                    <p>Card description. This is a great manga!</p>
-                    <p>Chapters: 100</p>
-                    <p>Finished: no</p>
-                </div>
-            </div>
-            <div class="flip-card">
-                <div class="card-front">
-                    <img src="one" alt="">
-                    <p class="img-description">Naruto</p>
-                </div>
-                <div class="card-back">
-                    <p>Card description. This is a great manga!</p>
-                    <p>Chapters: 100</p>
-                    <p>Finished: no</p>
-                </div>
-            </div>
-            <div class="flip-card">
-                <div class="card-front">
-                    <img src="one" alt="">
-                    <p class="img-description">Naruto</p>
-                </div>
-                <div class="card-back">
-                    <p>Card description. This is a great manga!</p>
-                    <p>Chapters: 100</p>
-                    <p>Finished: no</p>
-                </div>
-            </div>
-            <div class="flip-card">
-                <div class="card-front">
-                    <img src="one" alt="">
-                    <p class="img-description">Naruto</p>
-                </div>
-                <div class="card-back">
-                    <p>Card description. This is a great manga!</p>
-                    <p>Chapters: 100</p>
-                    <p>Finished: no</p>
-                </div>
-            </div>
-            <div class="flip-card">
-                <div class="card-front">
-                    <img src="one" alt="">
-                    <p class="img-description">Naruto</p>
-                </div>
-                <div class="card-back">
-                    <p>Card description. This is a great manga!</p>
-                    <p>Chapters: 100</p>
-                    <p>Finished: no</p>
-                </div>
-            </div>
-            <div class="flip-card">
-                <div class="card-front">
-                    <img src="one" alt="">
-                    <p class="img-description">Naruto</p>
-                </div>
-                <div class="card-back">
-                    <p>Card description. This is a great manga!</p>
-                    <p>Chapters: 100</p>
-                    <p>Finished: no</p>
-                </div>
+            <div class="add-card">
+                <div class="button_plus btn btn-open"></div>
             </div>
         </div>
     </div>
+    <section class="modal hidden">
+          <div class="close-wrapper"><button class="btn-close">⨉</button></div>
+          <h3>Add your manga:</h3>
+            <label for="title">Title:</label>
+            <input type="text" id="title" placeholder="Title name" />
+            <label for="author">Name of the author:</label>
+            <input type="text" id="author" placeholder="Author" />
+            <label for="chapters">Chapters:</label>
+            <input type="number" id="chapters" placeholder="Chapters" />
+            <label for="chapters-read">How many chapters have you read:</label>
+            <input type="number" id="chapters-read" placeholder="Chapters read" />
+            <label for="cover">Cover image:</label>
+            <input type="text" id="cover" placeholder="Cover URL" />
+        <button class="btn-add">Add</button>
+      </section>
+      
+      <div class="overlay hidden"></div>
 </body>
 </html>
