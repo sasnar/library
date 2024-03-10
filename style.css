@@ -1,7 +1,13 @@
+@font-face{
+    font-family: "Anime font";
+    src: url(./anime-ace-family/anime-ace.regular.ttf) format('truetype'),
+         url(./anime-ace-family/anime-ace.bold.ttf) format('truetype');
+}
+
 html, body {
     height: 100%;
     margin: 0;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: "Anime font";
 }
 
 .container {
@@ -13,11 +19,13 @@ html, body {
 }
 
 .header {
-    background-color: gray;
+    background-color:#095776;;
     width: 100%;
     text-align: center;
     padding: 20px;
-
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .flip-card {
@@ -137,7 +145,7 @@ html, body {
   }
 
   .card-back {
-      background-color: wheat;
+      background-color: #095776;
       transform: rotateY(180deg); /* Initially hide the card back */
       height: 260px;
       width: 200px;
@@ -153,6 +161,18 @@ html, body {
       padding: 8px;
       margin: 0;
       font-size: 16px;
+      color: white;
+  }
+
+  .back-btns {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+      justify-content: center;
+  }
+
+  .card-back button {
+      width: 70px;
   }
 
   .flip {

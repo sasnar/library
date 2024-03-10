@@ -1,4 +1,6 @@
 const myLibrary = [];
+let modal;
+let overlay;
 
 function Book(name,author,chapters,chaptersRead,img) {
     this.name = name;
@@ -16,15 +18,19 @@ function createCard(Book) {
   let container = document.querySelector(".content");
   let code = `
   <div class="flip-card">
-  <div class="card-front">
-      <img src="${Book.img}" alt="">
-      <p class="img-description">${Book.name}</p>
-  </div>
-  <div class="card-back">
-      <p>Author: ${Book.author}</p>
-      <p>Chapters: ${Book.chapters}</p>
-      <p>Completion: ${Book.chaptersRead} / ${Book.chapters}</p>
-  </div>
+    <div class="card-front">
+        <img src="${Book.img}" alt="">
+        <p class="img-description">${Book.name}</p>
+    </div>
+    <div class="card-back">
+        <p>Author: ${Book.author}</p>
+        <p >Chapters: ${Book.chapters}</p>
+        <p>Completion: <span  class="chaptersRead">${Book.chaptersRead}</span> / ${Book.chapters}</p>
+        <div class="back-btns">
+          <button class="upd-btn">Update</button>
+          <button class="remove-btn">Remove</button>
+        </div>
+    </div>
   </div>
   `
   container.innerHTML += code;
@@ -46,28 +52,49 @@ function flipCards() {
   });
 }
 
+function updateCard() {
+  document.querySelectorAll(".upd-btn").forEach(card => {
+    card.addEventListener('click', () => {
+      let chaptersRead = card.closest(".flip-card").querySelector(".chaptersRead");
+      console.log(chaptersRead);
+      chaptersRead.textContent = prompt("How many chapters have you read?");
+    });
+  });
+}
+
+function removeCard() {
+  document.querySelectorAll(".remove-btn").forEach(card => {
+    card.addEventListener('click', () => {
+      let thisCard = card.closest(".flip-card");
+      if(confirm("Do you want to remove this book?")) {
+        thisCard.remove();
+      }
+    });
+  });
+}
+
+function openModal() {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+function closeModal() {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
 
 // Move event listener attachment outside modalForm function
 document.addEventListener("DOMContentLoaded", function() {
   modalForm();
 });
 
-let modal;
-let overlay;
+
 function modalForm() {
   modal = document.querySelector(".modal");
   overlay = document.querySelector(".overlay");
   const openModalBtn = document.querySelector(".btn-open");
   const closeModalBtn = document.querySelector(".btn-close");
-  function openModal() {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  };
   openModalBtn.addEventListener("click", openModal);
-  function closeModal() {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
-  };
   closeModalBtn.addEventListener("click", closeModal);
   overlay.addEventListener("click", closeModal);
 }
@@ -92,9 +119,7 @@ function addModal(){
   chaptersInput.value = '';
   chaptersReadInput.value = '';
   imgInput.value = '';
-  
-  modal.classList.add("hidden");  
-  overlay.classList.add("hidden");
+  closeModal();
   return book;
 }
 
@@ -104,9 +129,10 @@ addBtn.addEventListener("click", function() {
   createCard(book);
   addBookToLibrary(book);
   flipCards();
+  updateCard();
+  removeCard();
   modalForm();
 }); 
-
 
 
 /*
