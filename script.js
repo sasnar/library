@@ -2,12 +2,14 @@ const myLibrary = [];
 let modal;
 let overlay;
 
-function Book(name,author,chapters,chaptersRead,img) {
+const Book = class {
+  constructor(name,author,chapters,chaptersRead,img) {
     this.name = name;
     this.author = author;
     this.chapters = chapters;
     this.chaptersRead = chaptersRead;
     this.img = img;
+  }
 }
 
 function addBookToLibrary(Book) {
